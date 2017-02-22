@@ -1,0 +1,8 @@
+1. Ext to be given as pdf and not .pdf
+3. What happens when server loses contact with the clients?
+4. What happens when a single client loses contact with the server?
+	4.1 What if initially send yes but never makes tcp connection
+	4.2 What if makes tcp connection but loses internet connection or becomes unavailable
+5. Time delay at client side needs to be automated
+6. CLient side UI needs to be revisited
+

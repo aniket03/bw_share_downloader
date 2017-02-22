@@ -1,0 +1,19 @@
+Multi-threaded Download Manager 
+
+
+Brief Overview:
+
+
+Implementation Details:
+
+Find size of the remote file
+
+
+Utility:
+
+Terms:
+Multi threading
+Byte range requests
+
+
+

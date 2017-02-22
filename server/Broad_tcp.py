@@ -62,14 +62,18 @@ def acc_tcp():
 	global myip 
 	host = myip
 	port = 50005                    
-	s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)      
+	#s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)      
 	# Bind the socket to the port
-	s.bind((host, port))            
-	s.listen(5)
+	#s.bind((host, port))            
+	#s.listen(5)
 	print 'Server binded and ready to use for TCP'
 	i=0
 	while i<yescount:
 		try:
+			s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)      
+			# Bind the socket to the port
+			s.bind((host, port))            
+			s.listen(5)
 			s.settimeout(80)
 			connsocket,addr = s.accept()
 			print addr
@@ -84,6 +88,7 @@ def acc_tcp():
 			mgfiles(i)
 			os.remove(str(i)+ext)
 			i=i+1
+		s.close()
 	
 	for i in range(len(th)):
 		th[i].start()
@@ -102,7 +107,6 @@ def acc_tcp():
 	
 	for i in range(len(th)):
 		os.remove(str(i)+ext)
-	s.close()
 
 def broad_udp():
 

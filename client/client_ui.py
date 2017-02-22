@@ -37,9 +37,11 @@ def ifyes(instance):
 		return
 	clientSocket.close()
 	
-	time.sleep(50)
+	time.sleep(45)
 	print "Client on TCP"
 	clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	clientSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+	clientSocket.bind((myip,50016))
 	try:
 		clientSocket.connect((serverip,50005))
 	except:
@@ -103,5 +105,7 @@ class MyApp(App):
 	return box
 	
 	#time.sleep(10)
-	
-MyApp().run()
+def start_client():
+	MyApp().run()
+
+start_client()
